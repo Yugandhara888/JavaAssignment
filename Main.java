@@ -1,37 +1,51 @@
-package shopmanagementsystem;
-
-import java.util.ArrayList;
-import java.util.List;
-
+package shop;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ShopManagementSystem shop = new ShopManagementSystem();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
 
-        // Adding Products
-        Product product1 = new Product("P01", "Laptop", 50000, 10);
-        Product product2 = new Product("P02", "Mobile", 20000, 20);
-        shop.addProduct(product1);
-        shop.addProduct(product2);
+        do {
+            System.out.println("\n--- Shop Management System ---");
+            System.out.println("1. Add Product");
+            System.out.println("2. Add Customer");
+            System.out.println("3. Process Sale");
+            System.out.println("4. Display Inventory");
+            System.out.println("5. Display Customers");
+            System.out.println("6. Display Transactions");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();  // Consume newline
 
-        // Adding Customers
-        Customer customer1 = new Customer("C01", "Alice", "1234567890");
-        shop.addCustomer(customer1);
+            switch (choice) {
+                case 1:
+                    shop.addProduct();
+                    break;
+                case 2:
+                    shop.addCustomer();
+                    break;
+                case 3:
+                    shop.processSale();
+                    break;
+                case 4:
+                    shop.displayInventory();
+                    break;
+                case 5:
+                    shop.displayCustomers();
+                    break;
+                case 6:
+                    shop.displayTransactions();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        } while (choice != 0);
 
-        // Processing a Sale
-        List<Product> purchasedProducts = new ArrayList<>();
-        purchasedProducts.add(product1);
-        purchasedProducts.add(product2);
-        
-        shop.processSale("T01", customer1, purchasedProducts);
-
-        // Display inventory, customers, and transactions
-        System.out.println("\n--- Inventory ---");
-        shop.displayInventory();
-
-        System.out.println("\n--- Customers ---");
-        shop.displayCustomers();
-
-        System.out.println("\n--- Transactions ---");
-        shop.displayTransactions();
+        scanner.close();
     }
 }

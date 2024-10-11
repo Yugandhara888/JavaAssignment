@@ -1,4 +1,4 @@
-package shopmanagementsystem;
+package shop;
 import java.util.List;
 
 class SaleTransaction {
@@ -24,21 +24,8 @@ class SaleTransaction {
         return total;
     }
 
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public List<Product> getPurchasedProducts() {
-        return purchasedProducts;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
+    public String getTransactionId() { return transactionId; }
+    public double getTotalAmount() { return totalAmount; }
 
     @Override
     public String toString() {
