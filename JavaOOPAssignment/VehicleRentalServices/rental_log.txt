@@ -1,0 +1,1 @@
+Rental ID: 1, Vehicle ID: 1, Customer ID: 1, Duration: 2 days

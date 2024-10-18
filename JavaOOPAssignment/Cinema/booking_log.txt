@@ -1,0 +1,1 @@
+Booking ID: 1, Showtime ID: 1, Seats: [Seat ID: 1, Available: No, Seat ID: 2, Available: No]
